@@ -1,0 +1,35 @@
+<h2>Template: <small> Dinámicos </small></h2>
+<hr>
+
+<form (ngSubmit)="save()"
+    #myForm="ngForm" autocomplete="off">
+   
+    <!-- Nombre -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input class="form-control"
+                   placeholder="Nombre de la persona"
+                   name="nombre"
+                   ngModel
+                   minlength="3"
+                   required>
+                <span class="form-text text-danger" 
+                *ngIf="notValidNAme()">
+                   Este campo es obligatorio
+               </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button"
+                    class="btn btn-primary float-end"
+                    [disabled]="myForm.invalid">
+                Guardar
+            </button>
+        </div>
+    </div>
+
+
+</form>

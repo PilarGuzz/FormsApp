@@ -1,0 +1,30 @@
+
+    <!-- Sidebar -->
+    <div class="bg-dark border-right p-3 100vh" id="sidebar">
+        <h3 class="text-light">
+            FormsApp
+        </h3>
+        <hr class="text-white" />
+    
+        <div class="list-group list-reset">
+            <div class="text-white">Template</div>
+            <a class="list-group-item list-group-item-action" 
+            *ngFor="let item of template;"
+            [routerLink]="['/template/', item]" 
+            >
+            {{item}}
+                
+            </a>
+        </div>
+        <br>
+        <div class="list-group list-reset">
+            <div class="text-white">Reactive</div>
+            <a class="list-group-item list-group-item-action" 
+            *ngFor="let item of reactive;"
+            [routerLink]="['/reactive/', item]" 
+            >
+            {{item}}
+                
+            </a>
+        </div>
+    </div>
