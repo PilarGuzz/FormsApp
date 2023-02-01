@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+interface Persona {
+  genero: string,
+  notificaciones: boolean
+}
 
 @Component({
   selector: 'app-switches',
@@ -6,11 +10,19 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent  {
 
-  constructor() { }
+persona: Persona = {
+  genero: '',
+  notificaciones: false
+};
 
-  ngOnInit(): void {
-  }
+terminos: boolean = false;
+
+save(){
+  console.log('Enviado');
+  
+}
+
 
 }

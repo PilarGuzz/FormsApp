@@ -4,6 +4,7 @@ import { BasicosComponent } from './basicos/basicos.component';
 import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { SwitchesComponent } from './switches/switches.component';
 import { ReactiveRoutingModule } from './reactive-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,9 @@ import { ReactiveRoutingModule } from './reactive-routing.module';
   ],
   imports: [
     CommonModule,
-    ReactiveRoutingModule
+    ReactiveRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ReactiveModule { }

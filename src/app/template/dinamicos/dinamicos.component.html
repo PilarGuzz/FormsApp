@@ -1,8 +1,7 @@
 <h2>Template: <small> Dinámicos </small></h2>
 <hr>
 
-<form (ngSubmit)="save()"
-    #myForm="ngForm" autocomplete="off">
+<form (ngSubmit)="save()" autocomplete="off" #myForm="ngForm">
    
     <!-- Nombre -->
     <div class="mb-3 row">
@@ -12,20 +11,48 @@
                    placeholder="Nombre de la persona"
                    name="nombre"
                    ngModel
-                   minlength="3"
+                   minlength="4"
                    required>
-                <span class="form-text text-danger" 
-                *ngIf="notValidNAme()">
+                <span class="form-text text-danger" *ngIf="notValid('nombre')">
                    Este campo es obligatorio
                </span>
         </div>
+    </div>
+
+    <!-- Añadir favorito -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+            <div class="input-group">
+                <input class="form-control"
+                       placeholder="Agregar favorito" 
+                       name="peli"
+                       [(ngModel)]="peli">
+
+                <button class="btn btn-outline-primary" type="button"
+                (click)="add()">
+                    Agregar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de favoritos -->
+    <div class="mb-3 row">
+        <div class="input-group mb-1" *ngFor="let favorito of persona.favoritos; let i = index">
+            <input class="form-control" [(ngModel)]="favorito.nombre" name="favorito_{{i}}">
+
+            <button class="btn btn-outline-danger" (click)="delete(i)" type="button"> Eliminar </button>
+        </div>
+
     </div>
 
     <div class="row">
         <div class="col-sm-12">
             <button type="button"
                     class="btn btn-primary float-end"
-                    [disabled]="myForm.invalid">
+                    [disabled]="myForm.invalid"
+                    (click)="save()">
                 Guardar
             </button>
         </div>
@@ -33,3 +60,4 @@
 
 
 </form>
+
